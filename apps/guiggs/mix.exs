@@ -46,7 +46,8 @@ defmodule Guiggs.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:data, in_umbrella: true}
+      {:data, in_umbrella: true},
+      {:phoenix_ecto, "~> 4.2"}
     ]
   end
 
