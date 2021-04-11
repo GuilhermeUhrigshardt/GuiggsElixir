@@ -1,0 +1,4 @@
+<h1><%= @event.title %> <small>at <%= @event.location %></small></h1>
+<h3>When: <%= format_date @event.date %></h3>
+<h4>Description:</h4>
+<p><%= @event.description%></p>
