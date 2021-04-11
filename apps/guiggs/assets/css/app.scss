@@ -1,5 +1,6 @@
 /* This file is for your main application css. */
 @import "./phoenix.css";
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 /* Alerts and form errors */
 .alert {
@@ -33,4 +34,8 @@
   color: #a94442;
   display: block;
   margin: -1rem 0 2rem;
+}
+
+.help-block {
+  color: red;
 }
