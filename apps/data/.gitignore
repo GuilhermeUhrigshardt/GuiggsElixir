@@ -25,3 +25,7 @@ data-*.tar
 
 # Temporary files for e.g. tests
 /tmp
+
+
+# Private files tests
+/priv
