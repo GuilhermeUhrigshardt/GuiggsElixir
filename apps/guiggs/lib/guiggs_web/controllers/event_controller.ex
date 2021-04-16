@@ -1,6 +1,8 @@
 defmodule GuiggsWeb.EventController do
     use GuiggsWeb, :controller
 
+    plug GuiggsWeb.AuthorizedPlug, "Guilherme" when action in [:create]
+
     def list(conn, _params) do
         events = Data.EventQueries.get_all
         |> IO.inspect()

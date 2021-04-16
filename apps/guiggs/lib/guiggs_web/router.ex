@@ -9,6 +9,11 @@ defmodule GuiggsWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  # pipeline :authorized do
+  #   plug :browser
+  #   plug GuiggsWeb.AuthorizedPlug
+  # end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -17,13 +22,28 @@ defmodule GuiggsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/events", EventController, :list
+
+    get "/login", LoginController, :index
+    post "/login", LoginController, :login
+
+    get "/events/", EventController, :list
     get "/events/new", EventController, :create
     post "/events/new", EventController, :add
     get "/events/:id", EventController, :show
   end
 
   # Other scopes may use custom stacks.
+
+  # scope "/events", GuiggsWeb do
+  #   pipe_through :authorized
+
+  #   get "/", EventController, :list
+  #   get "/new", EventController, :create
+  #   post "/new", EventController, :add
+  #   get "/:id", EventController, :show
+  # end
+
+
   # scope "/api", GuiggsWeb do
   #   pipe_through :api
   # end
