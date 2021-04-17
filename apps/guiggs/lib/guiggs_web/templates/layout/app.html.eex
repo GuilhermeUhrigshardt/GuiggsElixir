@@ -9,10 +9,20 @@
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
+  <ul class="nav nav-pills col-xs-offset-7">
+    <li><a href="/">Home </a></li>
+    <li><a href="<%= Routes.event_path(@conn, :list) %>"> Events </a></li>
+    <li><a href="<%= Routes.login_path(@conn, :index) %>"> Login</a></li>
+  </ul>
   <div class="container">
       <header class="header">
         <h1><span class="title">Guiggs</span></h1>
         <h4><span class="sub-title">Your online directory of events</span></h4>
+        <%= if @conn.cookies["user_name"] do %>
+          <span>
+            Hello, <%= @conn.cookies["user_name"] %>
+          </span>
+        <% end %>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
